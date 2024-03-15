@@ -3,11 +3,13 @@ function submitForm() {
   var table = document.querySelector(".table tbody");
   var newRow = table.insertRow();
 
-newRow.insertCell(0).innerHTML = form.elements["first-name"].value;
-newRow.insertCell(1).innerHTML = form.elements["last-name"].value;
-newRow.insertCell(2).innerHTML = form.elements["email"].value;
-newRow.insertCell(3).innerHTML = form.elements["address"].value;
-newRow.insertCell(4).innerHTML = form.elements["gender"].value;
+  newRow.insertCell(0).innerHTML = document.getElementById("first-name").value;
+  newRow.insertCell(1).innerHTML = document.getElementById("last-name").value;
+  newRow.insertCell(2).innerHTML = document.getElementById("email").value;
+  newRow.insertCell(3).innerHTML = document.getElementById("address").value;
+  newRow.insertCell(4).innerHTML = document.querySelector(
+    'input[name="gender"]:checked'
+  ).value;
 
   var foodChoices = "";
   var checkboxes = document.querySelectorAll('input[name="food"]:checked');
@@ -16,7 +18,8 @@ newRow.insertCell(4).innerHTML = form.elements["gender"].value;
   }
   newRow.insertCell(5).innerHTML = foodChoices.slice(0, -2);
 
-  newRow.insertCell(6).innerHTML = form.elements["state"].value;
-  newRow.insertCell(7).innerHTML = form.elements["country"].value;
+  newRow.insertCell(6).innerHTML = document.getElementById("state").value;
+  newRow.insertCell(7).innerHTML = document.getElementById("country").value;
+
   form.reset();
 }
